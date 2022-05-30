@@ -4,30 +4,48 @@ using UnityEngine;
 
 public class Lamp : MonoBehaviour
 {
-    //public Transform lampSpawn;
-    public GameObject lampPrefab;
+    private float defaultPosY, downPosY;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
-        //lampSpawn = GameObject.Find("Lamp_spawner").transform;
+        //lampObj = FindObjectOfType<Lamp>(true);
+        defaultPosY = transform.position.y;
+        downPosY = defaultPosY - 3.5f;
+
     }
 
+    //private Coroutine lampRoutine;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            //Instantiate(lampPrefab, transform.position, Quaternion.identity);
-            lampPrefab.SetActive(true);
+            StopAllCoroutines();
+            //StartCoroutine("MoveLamp(downPos)");
+            StartCoroutine(MoveLamp(downPosY));
         }
 
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            //Destroy(lampPrefab);
-            lampPrefab.SetActive(false);
+            StopAllCoroutines();
+            //StartCoroutine("MoveLamp(downPos)");
+            StartCoroutine(MoveLamp(defaultPosY));
         }
-                
-        
+    }
+
+    IEnumerator MoveLamp(float finalPosY)
+    {
+        float time = 0;
+        while (transform.position.y != finalPosY)
+        {
+            time += 0.00001f;
+            float pos = Mathf.Lerp(transform.position.y, finalPosY, time);
+            transform.position = new Vector3(transform.position.x, pos, transform.position.z);
+            print(transform.position); 
+            yield return null;
+        }
+
     }
 }

@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 
     private bool faceRight = true;
 
+    public GameObject lampPrefab;
+
     void Start()
     {
         coll = GetComponent<Collision>();
@@ -22,6 +24,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //Instantiate(lampPrefab, transform.position, Quaternion.identity);
+            lampPrefab.SetActive(true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            //Destroy(lampPrefab);
+            lampPrefab.SetActive(false);
+        }
+
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         //float xRaw = Input.GetAxisRaw("Horizontal");
