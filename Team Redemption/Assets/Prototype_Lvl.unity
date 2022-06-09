@@ -179,7 +179,11 @@ Camera:
   orthographic: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   orthographic size: 5.9
+=======
+  orthographic size: 5
+>>>>>>> parent of e30f156 (Tuesday)
 =======
   orthographic size: 5
 >>>>>>> parent of e30f156 (Tuesday)
@@ -211,7 +215,11 @@ Transform:
   m_LocalRotation: {x: -1e-45, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 13.54, y: 1.52, z: -10.1}
+=======
+  m_LocalPosition: {x: 13.54, y: -2.48, z: -10.1}
+>>>>>>> parent of e30f156 (Tuesday)
 =======
   m_LocalPosition: {x: 13.54, y: -2.48, z: -10.1}
 >>>>>>> parent of e30f156 (Tuesday)
@@ -481,6 +489,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &538465472
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +601,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of e30f156 (Tuesday)
 =======
 >>>>>>> parent of e30f156 (Tuesday)
 =======
@@ -1008,7 +1019,11 @@ MonoBehaviour:
     GateFit: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SensorSize: {x: 2.1722732, y: 1}
+=======
+    m_SensorSize: {x: 1.7865168, y: 1}
+>>>>>>> parent of e30f156 (Tuesday)
 =======
     m_SensorSize: {x: 1.7865168, y: 1}
 >>>>>>> parent of e30f156 (Tuesday)
