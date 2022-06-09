@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lamp : MonoBehaviour
 {
     private float defaultPosY, downPosY;
+    public float speed = 5f;
 
 
     // Start is called before the first frame update
@@ -12,7 +13,7 @@ public class Lamp : MonoBehaviour
     {
         //lampObj = FindObjectOfType<Lamp>(true);
         defaultPosY = transform.position.y;
-        downPosY = defaultPosY - 3.5f;
+        downPosY = defaultPosY - 2f;
 
     }
 
@@ -20,32 +21,46 @@ public class Lamp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             StopAllCoroutines();
             //StartCoroutine("MoveLamp(downPos)");
-            StartCoroutine(MoveLamp(downPosY));
+            //StartCoroutine(MoveLamp(downPosY));
+            MoveLampUp();
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             StopAllCoroutines();
             //StartCoroutine("MoveLamp(downPos)");
-            StartCoroutine(MoveLamp(defaultPosY));
+            //StartCoroutine(MoveLamp(defaultPosY));
+            MoveLampDown();
         }
     }
 
-    IEnumerator MoveLamp(float finalPosY)
+    void MoveLampUp()
     {
-        float time = 0;
-        while (transform.position.y != finalPosY)
-        {
-            time += 0.00001f;
-            float pos = Mathf.Lerp(transform.position.y, finalPosY, time);
-            transform.position = new Vector3(transform.position.x, pos, transform.position.z);
-            print(transform.position); 
-            yield return null;
-        }
+        float nspeed = speed * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, (transform.position.y - nspeed), transform.position.z);
 
+        if (transform.position.y <= downPosY)
+        {
+            transform.position = new Vector3(transform.position.x, downPosY, transform.position.z);
+        }
     }
+
+    void MoveLampDown()
+    {
+        float nspeed = speed * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, (transform.position.y + nspeed), transform.position.z);
+
+        if (transform.position.y >= defaultPosY)
+        {
+            transform.position = new Vector3(transform.position.x, defaultPosY, transform.position.z);
+        }
+    }
+
 }
+
+   
+
